@@ -5,20 +5,30 @@ pipeline {
       parallel {
         stage('print') {
           steps {
-            sh 'echo \'building project\''
+            echo 'Hello World'
           }
         }
-        stage('') {
+        stage('2nd print') {
           steps {
-            sh '''echo \'Hello World\'
+            sh '''echo \'Hello London\'
 '''
           }
         }
       }
     }
-    stage('Run a program') {
+    stage('Time limit') {
       steps {
-        echo 'Hello world'
+        timeout(time: 5, activity: true)
+      }
+    }
+    stage('retry') {
+      steps {
+        retry(count: 10)
+      }
+    }
+    stage('Archives') {
+      steps {
+        archiveArtifacts(artifacts: 'BOtest', caseSensitive: true)
       }
     }
   }
