@@ -16,10 +16,5 @@ pipeline {
         }
       }
     }
-    stage('retry') {
-      steps {
-        retry(count: 10)
-      }
-    }
   }
 }
