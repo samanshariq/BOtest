@@ -21,10 +21,5 @@ pipeline {
         retry(count: 10)
       }
     }
-    stage('Archives') {
-      steps {
-        archiveArtifacts(artifacts: 'BOtest', caseSensitive: true)
-      }
-    }
   }
 }
